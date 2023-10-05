@@ -21,7 +21,8 @@ new Vue({
                     loanTerm: this.loanTerm,
                     monthlyPayment: monthlyPayment
                 });
-            } else {
+            } 
+            else {
                 alert("Please fill in all the fields.");
             }
         },
