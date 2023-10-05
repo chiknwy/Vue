@@ -52,7 +52,7 @@
                 <div>
                     {{ calculation.loanAmount }} USD loan at {{ calculation.interestRate }}% for {{ calculation.loanTerm }} months. Monthly Payment: ${{ calculation.monthlyPayment.toFixed(2) }}
                 </div>
-                <button @click="deleteHistoryEntry(index)" class="bg-blue-100 text-white rounded-full hover:bg-blue-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-900 p-1  w-5 h-5">
+                <button @click="deleteHistoryEntry(index)" class="absolute right-6 bg-blue-100 text-white rounded-full hover:bg-blue-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-900 p-1  w-6 h-6">
                     <img src="https://cdn-icons-png.flaticon.com/512/484/484662.png" alt="Delete" class="w-full h-full">
                 </button>
                 
