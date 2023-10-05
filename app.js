@@ -9,13 +9,11 @@ new Vue({
     },
     methods: {
         calculateMonthlyPayment: function() {
-            
             if (this.loanAmount !== null && this.interestRate !== null && this.loanTerm !== null) {
                 const monthlyInterestRate = this.interestRate / 100 / 12;
                 const monthlyPayment = (this.loanAmount * monthlyInterestRate) /
                     (1 - Math.pow(1 + monthlyInterestRate, -this.loanTerm));
                 this.monthlyPayment = monthlyPayment;
-
                 
                 this.calculationHistory.push({
                     loanAmount: this.loanAmount,
@@ -26,6 +24,14 @@ new Vue({
             } else {
                 alert("Please fill in all the fields.");
             }
+        },
+
+        deleteHistoryEntry: function(index) {
+            this.calculationHistory.splice(index, 1);
+        },
+
+        clearHistory: function() {
+            this.calculationHistory = [];
         }
     }
 });

@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <title>Credit Simulation App</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Credit Simulation App</title>
     <link rel = "icon" href = "https://chiknwy.github.io/Tekweb/porto/img/lgo.png" type = "image/x-icon">
-
     <!-- Add Tailwind CSS CDN -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.16/dist/tailwind.min.css">
     <link rel="stylesheet" href="styles.css">
@@ -44,14 +43,23 @@
 
         <!-- History section -->
         <div class="mt-8">
-            <h2 class="text-xl font-semibold mb-4">Calculation History</h2>
+            <h2 class="text-xl font-semibold mb-4">Calculation History <button @click="clearHistory" class="absolute right-5 text-blue-200 text-100">Delete All</button></h2>
+            
             <ul>
                 <li v-for="(calculation, index) in calculationHistory" :key="index"
-                    class="mb-2 p-2 bg-gray-800 text-blue-200 rounded-md shadow-md">
+                class="mb-2 p-2 bg-gray-800 text-blue-200 rounded-md shadow-md flex justify-between items-center">
+                <div>
                     {{ calculation.loanAmount }} USD loan at {{ calculation.interestRate }}% for {{ calculation.loanTerm }} months. Monthly Payment: ${{ calculation.monthlyPayment.toFixed(2) }}
-                </li>
+                </div>
+                <button @click="deleteHistoryEntry(index)" class="bg-blue-100 text-white rounded-full hover:bg-blue-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-900 p-1 ">
+                    <img src="https://cdn-icons-png.flaticon.com/512/484/484662.png" alt="Delete" class="w-6 h-6">
+                </button>
+            </li>
+
             </ul>
         </div>
+
+        
     </div>
     
     <footer class="bg-gray-950 py-5">
@@ -65,5 +73,4 @@
     <!-- Include your JavaScript file -->
     <script src="app.js"></script>
 </body>
-
 </html>
